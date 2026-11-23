@@ -1,31 +1,27 @@
-# 🚗 Projeto Final de Banco de Dados - Sistema de Locadora de Veículos
+# 🍔 Projeto Final de Dados e POO - Sistema de Lanchonete (Comandas)
 
 ## 📋 Sobre o Projeto
-Este repositório contém a evolução estrutural do banco de dados de um Sistema de Locação de Veículos, unindo os conceitos de modelagem de dados, SQL Avançado e planejamento para integração com Programação Orientada a Objetos (POO).
+Este repositório documenta a evolução do banco de dados de uma Lanchonete, focando no rastreio de comandas (atendimentos) e na forte integração com **Programação Orientada a Objetos**, aplicando conceitos de **Herança** nas tabelas de produtos.
 
 ## 🗄️ Estrutura do Banco de Dados
-* **SGBD Utilizado:** MySQL / MariaDB
-* **Nome do Banco:** `locadora_db`
-* **Total de Tabelas:** 4 (`categorias`, `clientes`, `veiculos`, `locacoes`)
-* **Volume de Dados:** Mais de **3.115 registros totais** gerados para testes massivos.
-* **Uso de IA:** Utilizada IA (LLM) para auxílio na elaboração da sintaxe de `CROSS JOIN` iterativo, visando atingir a massa de dados superior a 3.000 registros de forma íntegra.
+* **SGBD Utilizado:** MySQL
+* **Nome do Banco:** `lanchonete_db`
+* **Modelagem POO:** Uso da estratégia "Table per Class" para mapear a herança da Superclasse `produto` para as subclasses `produto_suco`, `produto_sanduiche` e `produto_salada`.
+* **Volume de Dados:** Mais de **3.150 registros totais** gerados com scripts `CROSS JOIN` para validação de carga pesada.
 
 ## 📊 Relatórios SQL Propostos
-1. **Faturamento por Categoria:** Identifica quais categorias de carro dão mais lucro.
-2. **Top 5 Clientes:** Lista os clientes mais fiéis para campanhas de marketing.
-3. **Volume por Mês:** Analisa a sazonalidade e quantidade de locações históricas.
+1. **Faturamento por Mesa:** Analisa ticket médio e rotatividade.
+2. **Top Produtos:** Lista as vendas para gestão de estoque e cardápio.
+3. **Fluxo de Pagamentos:** Analisa as formas de pagamento usadas pelos clientes.
 
 ## 💻 Integração Futura (POO)
-O banco foi preparado para receber o sistema em POO. As principais regras mapeadas são:
-* Bloqueio de locação de veículos que não possuam o status "Disponível".
-* Cálculo automatizado de diárias instanciando objetos da classe `Categoria`.
-* Histórico inalterável para garantir rastreabilidade nas faturas.
+* Implementação de polimorfismo nas classes filhas de Produto.
+* Atributos derivados gerenciados por métodos da classe (ex: `calcularSaldo()` do Atendimento).
+* Validação de regras de negócio, como não permitir abrir atendimento em mesa já ocupada.
 
 ## 🚀 Como Executar
 1. Clone este repositório.
-2. Abra o seu SGBD (MySQL Workbench, DBeaver, XAMPP/phpMyAdmin).
-3. Importe ou execute inteiramente o arquivo `database.sql`. O script já cria o banco, as tabelas e insere os 3.115 registros automaticamente.
+2. Importe o arquivo `database.sql` no MySQL (Workbench/DBeaver).
+3. O script criará as tabelas, relacionamentos (PK/FK) e inserirá toda a massa de dados de teste.
 
-## 📄 Documentação Completa
-Acesse a análise detalhada, o diagrama DER e as queries completas no relatório em PDF:
-👉 [Abrir relatorios.pdf](./relatorios.pdf)
+👉 [Leia o Relatório Completo no PDF](./relatorios.pdf)
